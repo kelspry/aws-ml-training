@@ -18,12 +18,12 @@ based on those real-time stock market movements
 
 **How do we get our streaming data into AWS?... and into our ML process?**
 
-![Kinesis](./images/kinesis.png)
+![Kinesis](../images/kinesis.png)
 
 Think about Kinesis as a family of tools - it consists of several different services that make up the entire
 Kinesis streaming family:
 
-![KinesisFamily](./images/kinesis_family.png)
+![KinesisFamily](../images/kinesis_family.png)
 
 ## Kinesis Data Streams
 
@@ -41,7 +41,7 @@ can have multiple consumers consume the data stream and perform different proces
 Note - when using Kinesis Data Streams, need that intermediate Data Consumer to take the data and output it on S3 etc - 
 for example can use AWS Lambda.
 
-![KinesisDataStreams](./images/kinesis_data_streams.png)
+![KinesisDataStreams](../images/kinesis_data_streams.png)
 
 ### Shards
 
@@ -52,7 +52,7 @@ it creates a sequence (in the diagram below, a red box). These sequences are ass
 requests we make and the larger the data payload gets, determines how many Shards you will use. The number of Shards you
 can use is from 1-500 by default, but you can request more if needed.
 
-![KinesisShards](./images/kinesis_shards.png)
+![KinesisShards](../images/kinesis_shards.png)
 
 Summary points:
 
@@ -81,9 +81,9 @@ Kinesis API...
 3. Kinesis API (AWS SDK) - can perform all the same actions you can perform with KPL or KCL, but it's used for more
 low-level API operations/manual configurations
 
-![InteractingWithKinesis](./images/interacting_with_kinesis.png)
+![InteractingWithKinesis](../images/interacting_with_kinesis.png)
 
-![KPLvsAPI](./images/kpl_api.png)
+![KPLvsAPI](../images/kpl_api.png)
 
 Other notes on Kinesis Data Streams:
 
@@ -94,7 +94,7 @@ and number of requests
 done by a separate application that monitors the metrics from the Producers and Consumers and makes an API call to add
 more Shards if needed. Resharding is considered advanced. 
 
-![KinesisConsole](./images/kinesis_console.png)
+![KinesisConsole](../images/kinesis_console.png)
 
 ### Use Cases for Kinesis Data Streams
 
@@ -102,7 +102,7 @@ more Shards if needed. Resharding is considered advanced.
 2. Real-time data analytics e.g. run real-time analytics on click stream data (i.e. what a user is clicking on) and 
 process it within seconds
 
-![KinesisFamily](./images/kinesis_summary.png)
+![KinesisFamily](../images/kinesis_summary.png)
 
 ## Kinesis Data Firehose
 
@@ -118,12 +118,12 @@ data onto DynamoDB.
 
 Summary - Kinesis Data Firehose allows you to easily stream data to a final data source/destination.
 
-![KinesisDataFirehose](./images/kinesis_data_firehose.png)
+![KinesisDataFirehose](../images/kinesis_data_firehose.png)
 
 **Note major differences with Kinesis Data Streams - Kinesis Data Firehose - doesn't have shards or data retention and 
 with Data Streams, storing data is option, however with Firehose, that is the whole goal!**
 
-![KinesisFirehoseUses](./images/kinesis_firehose_uses.png)
+![KinesisFirehoseUses](../images/kinesis_firehose_uses.png)
 
 ### Use Cases for Kinesis Data Firehose
 
@@ -151,16 +151,16 @@ These Applications can either be written to:
 
 We can write our Consumer Applications on EC2 instances.
 
-![KinesisVideoStreams](./images/kinesis_video_streams.png)
+![KinesisVideoStreams](../images/kinesis_video_streams.png)
 
-![KinesisVideoStreamsUses](./images/kinesis_video_streams_uses.png)
+![KinesisVideoStreamsUses](../images/kinesis_video_streams_uses.png)
 
 ### Kinesis Video Streams Use Case
 
 Amazon Cloud Cam - detects movement and then sends notifications and also stores the videos on S3 so
 they can be viewed. (There is also ML set up here as it can recognise a person over some other random object)
 
-![KinesisVideoStreamsUseCase](./images/kinesis_video_streams_use_case.png)
+![KinesisVideoStreamsUseCase](../images/kinesis_video_streams_use_case.png)
 
 ## Kinesis Data Analytics
 
@@ -174,11 +174,11 @@ The way this works is:
 joins etc, all in real-time)
 3. Outputs into S3/Redshift/other BI/Analytics tools
 
-![KinesisDataAnalytics](./images/kinesis_data_analytics.png)
+![KinesisDataAnalytics](../images/kinesis_data_analytics.png)
 
-![KinesisDataAnalytics](./images/kinesis_data_analytics_console.png)
+![KinesisDataAnalytics](../images/kinesis_data_analytics_console.png)
 
-![KinesisDataAnalyticsUses](./images/kinesis_data_analytics_uses.png)
+![KinesisDataAnalyticsUses](../images/kinesis_data_analytics_uses.png)
 
 ### Kinesis Data Analytics Use Cases
 
@@ -189,9 +189,9 @@ into a data warehouse or data lake.
 
 ## Which Kinesis service to use?
 
-![WhichKinesis](./images/which_kinesis.png)
+![WhichKinesis](../images/which_kinesis.png)
 
 ## Exam Tips
 
-![StreamingDataCollectionExamTips1](./images/streaming_data_collection_exam_tips_1.png)
+![StreamingDataCollectionExamTips1](../images/streaming_data_collection_exam_tips_1.png)
 

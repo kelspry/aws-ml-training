@@ -2,7 +2,7 @@
 
 *Machine Learning Cycle* represents the iterative process of ML:
 
-![ML Cycle](./images/ml_cycle.png)
+![ML Cycle](../images/ml_cycle.png)
 
 Goal: Understand the problem at hand, understand the parts of our input data, map our data into AWS
 
@@ -18,7 +18,7 @@ Goal: Understand the problem at hand, understand the parts of our input data, ma
 
 #### Data
 
-![Data](./images/good_bad_data.png)
+![Data](../images/good_bad_data.png)
 
 General rule of thumb - you should have at least 10 times as many data points as the total number of features.
 
@@ -38,7 +38,7 @@ images/pdf's/videos etc
 *Semi-structured Data* - too unstructured for relational data, but has some organisational structure e.g. 
 No-SQL data, data usually in csv/json/xml format.
 
-![StructuredUnstructured](./images/structured_unstructured.png)
+![StructuredUnstructured](../images/structured_unstructured.png)
 
 *Database* - single repository for applications or other services that are transactional.
 Whenever we write to a transactional database, if there is an error, the changes are rolled back. 
@@ -48,16 +48,16 @@ in a data warehouse. Traditional, before the data lands into the Data Warehouse 
 the data before it lands in the Data Warehouse. This is so we can run analytics/use BI tools etc from the data in the 
 Warehouse. Warehouses are used to stores large volumes of data that we can analyse more easily.
 
-![DataWarehouse](./images/data_warehouse.png)
+![DataWarehouse](../images/data_warehouse.png)
 
 
 *Data Lake* - Store mass amounts of unstructured data that are dumped into a Data Lake (single repo). Traditionally 
 there is no processing done before putting data into a Data Lake. Data Lakes are often used to store historical data or
 data we are not sure what to do with it yet etc. 
 
-![DataLake](./images/data_lake.png)
+![DataLake](../images/data_lake.png)
 
-![DataReposSummary](./images/data_repos_summary.png)
+![DataReposSummary](../images/data_repos_summary.png)
 
 ## ML Data Terminology 
 
@@ -65,7 +65,7 @@ data we are not sure what to do with it yet etc.
 
 e.g. Emails - are they spam or not spam.
 
-![LabelledData](./images/labelled_data_example.png)
+![LabelledData](../images/labelled_data_example.png)
 
 e.g.2. Image data 
 
@@ -75,14 +75,14 @@ e.g. Audio Streams/log files/Twitter streams
 
 Further examples of labelled vs unlabelled data:
 
-![LabelledUnlabelled](./images/labelled_unlabelled_examples.png)
+![LabelledUnlabelled](../images/labelled_unlabelled_examples.png)
 
 Note - the majority of the time, supervised learning is done with labelled data and unsupervised learning is done with
 unlabelled data.
 
 **Categorical vs Continuous Features**
 
-![CategoricalContinuous](./images/categorical_continuous.png)
+![CategoricalContinuous](../images/categorical_continuous.png)
 
 #### Different types of data
 
@@ -99,9 +99,9 @@ devices or web traffic or log files.
 
 Summary:
 
-![DataTypes](./images/dataset_type_1.png)
+![DataTypes](../images/dataset_type_1.png)
 
-![DataTypes2](./images/dataset_type_2.png)
+![DataTypes2](../images/dataset_type_2.png)
 
 ## AWS Data Stores
 
@@ -109,7 +109,7 @@ How to get our data into AWS?
 
 **At the core of all this - how do we get our data into S3?**
 
-![DataStores](./images/data_stores.png)
+![DataStores](../images/data_stores.png)
 
 #### Amazon Simple Storage Service (S3)
 
@@ -139,13 +139,13 @@ This is for relational databases.
 
 RDS has the following engines to choose from to create a fully managed relational database:
 
-![DBEngines](./images/db_engines.png)
+![DBEngines](../images/db_engines.png)
 
 #### Dynamo DB
 
 No-SQL data store for non-relational databases - used to store key-value pairs.
 
-![NonRelationalDB](./images/non_relational_db.png)
+![NonRelationalDB](../images/non_relational_db.png)
 
 #### Amazon Redshift
 
@@ -158,7 +158,7 @@ tools to query that data etc.
 *Redshift Spectrum* - feature within Redshift that allows you to query your Redshift cluster that has sources of S3 data.
 i.e. allows you to query your S3 data. Could then use AWS QuickSight etc to create charts to visualise that data.
 
-![RedshiftSpectrum](./images/redshift_spectrum.png)
+![RedshiftSpectrum](../images/redshift_spectrum.png)
 
 #### Amazon Timestream
 
@@ -179,18 +179,18 @@ Tools we can use to help get our data into S3 so it's ready for our ML process.
 
 Common exam questions - which tool to use to get data from 1 location to another?
 
-![MigrationTools](./images/migration_tools.png)
+![MigrationTools](../images/migration_tools.png)
 
 #### Data pipeline
 
 Allows you to process and move data between different compute and storage services. Also allows you to transfer data
 from on prem onto AWS.
 
-![DataPipeline](./images/data_pipeline.png)
+![DataPipeline](../images/data_pipeline.png)
 
 Data pipeline offers several built in activity objects that allow us to copy data using different activity types:
 
-![DataPipelineActivities](./images/data_pipeline_activities.png)
+![DataPipelineActivities](../images/data_pipeline_activities.png)
 
 Can use these activities and specify which type of data source we have and how we want to migrate our data. We can set
 up these pipelines to either run on schedule or on demand.
@@ -206,7 +206,7 @@ also provide your own templates for custom pipelines that you build yourself.
 
 This service allows you to migrate data between different database platforms.
 
-![DMS](./images/dms.png)
+![DMS](../images/dms.png)
 
 This is generally used for transferring data between 2 different relational database services, but you can also
 output the results onto S3. 
@@ -220,7 +220,7 @@ this wouldn't be used as a transformation tool.
 You can set up a source endpoint for any of these types of sources and then have the data output on any of the target
 endpoints:
 
-![DMSEndpoints](./images/dms_endpoints.png)
+![DMSEndpoints](../images/dms_endpoints.png)
 
 *Main difference between Data pipeline and DMS* - DMS handles all the heavy lifting for you when it comes to resources
 that are required to transfer the data. Data pipeline allows you to set up your resources as needed and handles the
@@ -234,7 +234,7 @@ here whilst talking about loading data. (Go into AWS Glue in much more depth lat
 When using AWS Glue, it creates tables within a data catalogue that are like a 'skeleton' for our dataset. It's 
 essentially the metadata and data types and attribute types that make up our datasets.
 
-![AWSGlue](./images/aws_glue.png)
+![AWSGlue](../images/aws_glue.png)
  
 To create these tables within AWS Glue we set up a **Crawler** - this goes out, looks at the data and determines the
 schema associated with that data. Within these Crawlers, there's several different classifiers that work at a 
@@ -246,22 +246,22 @@ again. Think of these Classifiers as similar to regular expressions looking for 
 
 Can also create custom Classifiers to specifically lay out what your data looks like. 
 
-![AWSGlueClassifiers](./images/aws_glue_classifiers.png)
+![AWSGlueClassifiers](../images/aws_glue_classifiers.png)
 
 Summary - we can use AWS Glue to load our data from one data source to another. During the loading process, we can
 change the output format to any of the formats below to get it ready for our ML model. 
 
-![AWSGlueSummary](./images/aws_glue_summary.png)
+![AWSGlueSummary](../images/aws_glue_summary.png)
 
 #### Choosing the Right Approach for Data Migration
 
-![MigrationRightApproach](./images/migration_right_approach.png)
+![MigrationRightApproach](../images/migration_right_approach.png)
 
 ## AWS Helper Tools
 
 Tools that can help us get our data into AWS and also help us store our data within AWS. 
 
-![AWSHelperTools](./images/aws_helper_tools.png)
+![AWSHelperTools](../images/aws_helper_tools.png)
 
 #### Elastic Map Reduce (EMR)
 
@@ -272,11 +272,11 @@ allows you to run distributed workloads over many EC2 instances if you have very
 these products/frameworks are open source and EMR allows you to assemble all/some of them together to do 
 different things. 
 
-![EMRFrameworks1](./images/emr_frameworks_1.png)
+![EMRFrameworks1](../images/emr_frameworks_1.png)
 
-![EMRFrameworks2](./images/emr_frameworks_2.png)
+![EMRFrameworks2](../images/emr_frameworks_2.png)
 
-![EMRConsoleView](./images/emr_console_view.png)
+![EMRConsoleView](../images/emr_console_view.png)
 
 In our case, we could use EMR to store mass amounts of files in a distributed file system to use as our
 input data. If our data is already within an EMR cluster, we can use some of the frameworks and services to 
@@ -291,20 +291,20 @@ We can essentially set up a table within our data catalogue within AWS Glue and 
 Within the console, we can select tables that are defined within our AWS Glue Data Catalogue. We can output the
 query results onto S3/into a csv file etc:
 
-![AmazonAthena](./images/amazon_athena.png)
+![AmazonAthena](../images/amazon_athena.png)
 
 *What is the difference* between Redshift Spectrum and Athena
 
-![RedshiftSpectrumAthenaComparison](./images/redshift_spectrum_athena_comparison.png)
+![RedshiftSpectrumAthenaComparison](../images/redshift_spectrum_athena_comparison.png)
 
 
 ## Exam Tips
 
-![DataCollectionExamTips1](./images/data_collections_exam_tips_1.png)
+![DataCollectionExamTips1](../images/data_collections_exam_tips_1.png)
 
-![DataCollectionExamTips2](./images/data_collections_exam_tips_2.png)
+![DataCollectionExamTips2](../images/data_collections_exam_tips_2.png)
 
-![DataCollectionExamTips3](./images/data_collections_exam_tips_3.png)
+![DataCollectionExamTips3](../images/data_collections_exam_tips_3.png)
 
 
 
