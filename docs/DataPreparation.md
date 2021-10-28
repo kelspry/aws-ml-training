@@ -149,7 +149,7 @@ Breaking down tf-idf:
 
 Example:
 
-![TDIDFExample](../images/td_idf_example.png)
+![TFIDFExample](../images/tf_idf_example.png)
 
 *Vectorised Tf-idf (could come up in exam):*
 
