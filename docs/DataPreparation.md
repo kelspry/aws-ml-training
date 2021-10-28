@@ -151,7 +151,7 @@ Example:
 
 ![TFIDFExample](../images/tf_idf_example.png)
 
-*Vectorised Tf-idf (could come up in exam):*
+**Vectorised Tf-idf (could come up in exam):**
 
 Syntax - (number of documents, number of unique n-grams)
 
@@ -218,7 +218,7 @@ information.
 
 - Changes numeric values so all values are on the same scale:
 
-    * *Normalisation* (note, in the context of the exam: scaling = feature scaling = normalisation):
+    * **Normalisation** (note, in the context of the exam: scaling = feature scaling = normalisation):
     
          Example: we want to apply Normalisation to the 'Price' feature. The way normalisation works is that is assigns
          the minimum value to 0 and the maximum value to 1 and then it scales the other values in between.
@@ -236,7 +236,7 @@ information.
          This is the most common and easiest method for scaling values. The problem with normalisation is that OUTLIERS
          CAN THROW OFF NORMALISATION!! 
      
-    * *Standardisation*:
+    * **Standardisation**:
         
         This works by setting the average value to 0 and then uses the z-score for the remainder of the values.
         
@@ -302,7 +302,7 @@ Binning Summary:
 
 ## Other Feature Engineering
 
-* *Image Feature Engineering* - can be done to extract useful information from images before using them with ML
+* **Image Feature Engineering** - can be done to extract useful information from images before using them with ML
 algorithms. A lot of these techniques are out of the scope of the exam, but worth covering to give a more complete idea
 of feature engineering.
 
@@ -317,7 +317,7 @@ to 1 and that are white to 0.
 This grid of 1's and 0's can then be compared against other known images of numbers to work out if the image is of a 
 number (e.g. the MNIST dataset).
 
-* *Audio Feature Engineering* - can be done to extract useful information from sounds and audio before using them with ML
+* **Audio Feature Engineering** - can be done to extract useful information from sounds and audio before using them with ML
 algorithms. 
 
 Example simple audio stream - can be sampled at different points in time to give a data set of amplitude values
@@ -363,7 +363,7 @@ Techniques to handle missing values:
 
 ![HandleMissingValues](../images/handle_missing_values.png)
 
-Note - replacing data is known as *data imputation*.
+Note - replacing data is known as **data imputation**.
 
 May get questions on the exam asking which technique to use to handle missing values.
 

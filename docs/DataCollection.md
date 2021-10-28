@@ -29,12 +29,17 @@ Where does data come from?
 ## Data Terminology
 
 *Datasets* - input data = training/testing data (in ML)
+
 *Column/Attribute* - feature of the data
+
 *Row/Observations* - different data points in the dataset
+
 *Structured Data* - defined schema - schema is info needed to interpret the data e.g. attribute names and their 
 assigned data types 
+
 *Unstructured Data* - no defined schema or structural properties. This makes up the majority of data collected e.g. 
 images/pdf's/videos etc
+
 *Semi-structured Data* - too unstructured for relational data, but has some organisational structure e.g. 
 No-SQL data, data usually in csv/json/xml format.
 
