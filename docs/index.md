@@ -10,7 +10,7 @@
 
 5. [Modelling](./05Modelling.md)
 
-6. [Algorithms - Part 1](./06Algorithms.md)
+6. [Algorithms](./06Algorithms.md)
 
 7. [Evaluation and Optimisation](./07EvaluationAndOptimisation.md)
 
