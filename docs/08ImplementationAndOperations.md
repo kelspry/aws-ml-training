@@ -228,3 +228,100 @@ Tensorflow or mxnet.
 
 ![DeployingLocally](../images/deploying_locally.png)
 
+## Security
+
+### Security Concepts
+
+![SecurityConcepts](../images/security_concepts.png)
+
+### Architecture for securing instances
+
+![SecurityArchitecture](../images/security_architecture.png)
+
+1. In the inner layer we have Security Groups, which we can think of as little firewalls around our Instances
+2. In the next layer we have Network ACL's, which govern what traffic we allow in and out of our subnets
+3. Then we may also have an Internet Gateway or a NAT instance, that provides us access to the internet
+4. We have a VPC Endpoint talking to S3: Improves security because it means we don't have to go through the public 
+internet to access Public AWS Services, that are not held within our VPC. Additionally, it could lower our cost, because
+it means we don't have to pay egress charges for the data that goes out to those services
+![VPCEndpoint](../images/vpc_endpoint.png)
+![VPCEndpointExample](../images/vpc_endpoint_example.png)
+5. When we create a model for the first time, we can tell SageMaker which subnets and security groups we want the 
+SageMaker training job to use. Then SageMaker would create an Elastic Network Interface (EIP) linking the subnets
+to the training containers.
+![VPCEndpointExampleTraining](../images/vpc_endpoint_example_training.png)
+
+### Security Implications when using Notebook Instances
+
+![SecurityNotebookInstances](../images/security_notebook_instances.png)
+
+(Note for point 2 - we can also set up an interface endpoint to the SageMaker services as an alternative to getting NAT
+gateway etc that permits Internet access)
+
+### IAM Policies
+
+There are 2 main types of policies:
+
+![IAMPolicies](../images/iam_policies.png)
+
+Example user permission policy:
+
+![ExampleUserPermissionPolicy](../images/example_user_permission_policy.png)
+
+### Encryption
+
+We can think of 2 forms of Encryption:
+
+![Encryption](../images/encryption.png)
+
+Encryption is well incorporated into the various SageMaker products e.g creating notebook instances or
+creating training jobs or creating and configuring endpoints or creating batch transform jobs. 
+
+All the above are examples of encryption as rest, for an example of encryption in transit:
+
+![EncryptionInTransit](../images/encryption_in_transit.png)
+
+Everything is already using HTTPS, which means it's encrypted.
+
+However, if we wanted to provide external access to our model and even perhaps sell subscriptions...
+
+We could do something like in the below and set up an API Gateway using a custom domain with a TLS Certificate
+provided by AWS Certificate Manager. We can then use a Lambda function to pass in the requests received from the 
+API Gateway. 
+
+![EncryptionInTransit2](../images/encryption_in_transit_2.png)
+
+## Monitor and Evaluate
+
+### Amazon CloudWatch
+
+![CloudWatchWithSageMaker1](../images/cloudwatch_with_sagemaker_1.png)
+
+- You can get a better idea of what CloudWatch metrics are available for SageMaker in the documentation if/when
+required
+
+- When we use SageMaker with CloudWatch, SageMake is automatically going to create Log Groups for us using 
+standard naming conventions:
+
+![CloudWatchWithSageMaker2](../images/cloudwatch_with_sagemaker_2.png)
+
+- We could set up a CloudWatch Alarm that monitors an accuracy metric and once it falls below a certain threshold, the 
+alarm triggers a Lambda function to create a new training job
+
+![CloudWatchWithSageMaker3](../images/cloudwatch_with_sagemaker_3.png)
+
+### Amazon CloudTrail 
+
+![CloudTrailWithSageMaker1](../images/cloudtrail_with_sagemaker_1.png)
+
+## Exam Tips
+
+![ImplementationExamsTips1](../images/implementation_exam_tips_1.png)
+
+![ImplementationExamsTips2](../images/implementation_exam_tips_2.png)
+
+![ImplementationExamsTips3](../images/implementation_exam_tips_3.png)
+
+![ImplementationExamsTips4](../images/implementation_exam_tips_4.png)
+
+![ImplementationExamsTips5](../images/implementation_exam_tips_5.png)
