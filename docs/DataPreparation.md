@@ -387,6 +387,120 @@ Example:
 
 ![FeatureSelectionUseCases](../images/feature_selection_use_cases.png)
 
+## AWS Data Preparation Helper Tools
+
+![DataPrepTools](../images/data_prep_tools.png)
+
+### AWS Glue
+
+![AWSGlueOverview](../images/aws_glue_overview.png)
+
+- Fully managed ETL service that allows you to run Python or Scala code on your datasets to allow you to 
+transform them. 
+- It allows you to create jobs that transform your data and you can then run them either on demand or on 
+a defined schedule or even when another AWS service is triggered e.g. when an object lands on S3.
+- Before we can set up any data preparation jobs in AWS Glue, we first need to let AWS Glue know what our data source
+actually looks like. This involves setting up a Crawler (explained in detail in 'Data Collection' notes).
+- What's great about the Python and Scala code is that AWS Glue allows you to either upload your code manually, 
+or it generates the code for you and allows you to edit it directly within the console - this gives a great starting 
+point for transforming your data.
+- AWS Glue consists of 2 key parts:
+    1. Data Catalogue
+    2. ETL
+    
+![AWSGlueFeatures](../images/aws_glue_features.png)
+
+- Within the Data Catalogue there are 2 key things:
+    1. Databases
+    2. Crawlers - scan input data source and infer schema etc - then creates tables within the databases
+- ETL jobs can then be set up once these database tables are established - when creating a job, we have the choice
+to choose the type of job we want to create e.g. a Spark job - this is a fully managed cluster of Apache Spark servers 
+that AWS Glue spins up in the background and allows us to run our transformation code on. *Note - Spark is the default 
+job type.* We then have the choice or choosing between Python and Scala as our ETL language. Once we select an ETL 
+language, then we select how we want the job to run:
+    1. Allow AWS Glue to generate the script for us - if you select Python, it automatically generate PySpark code
+    (example transformation jobs you can choose in image below)
+    2. Provide it with a script of our own 
+    3. Start a brand new script from scratch
+    
+![AWSGlueJobsPySpark](../images/aws_glue_jobs_pyspark.png)
+
+- Rather than choosing Spark as the job type, you can also choose Python shell, which allows you to write 
+traditional python scripts to run on your datasets - see below for supported python libraries (Note, in this case, AWS Glue
+then will not generate scripts for us).
+
+![AWSGluePythonShell](../images/aws_glue_python_shell.png)
+
+- AWS Glue also allows us to create Apache Zeppeling and Jupyter notebooks to do transformations. These are not 
+specifically hooked into jobs, but allow us to do ad-hoc/simple transformations. If you create a notebook within AWS
+Glue, it's actually hosted on the SageMaker service.
+- Least amount of effort for ETL jobs in terms of the infrastructure you need to set up (AWS Glue is fully managed).
+
+## AWS SageMaker
+
+- SageMaker is must more than a data preparation too 
+- It also allows you to build, train, and deploy ML models
+- Here, we will just touch on the data preparation service it offers
+- SageMaker allows you to create Jupyter Notebooks that are directly integrated within the SageMaker service. You can 
+spin up notebook instances that are on a fully managed server, all within SageMaker.
+
+- AWS Glue vs AWS SageMaker:
+
+![AWSGlueSageMaker](../images/aws_glue_sagemaker.png)
+
+## Elastic Map Reduce (EMR)
+
+- Included here as a data preparation tool because the entire ETL/data preparation process could be done within the EMR 
+ecosystem, however other services within AWS make the job much easier e.g. can integrate EMR and SageMaker together -
+if we already have ETL processes/Spark jobs that are already running within our EMR cluster - we can directly integrate 
+the SageMaker SDK for Apache Spark within our EMR cluster, so we can run all our SageMaker and Spark jobs together 
+within the EMR cluster.
+- Note, EMR is not fully managed, so EMR is not the easiest option for ETL, as we would have to managed all the clusters
+ourselves within EMR.
+- Reminder - EMR is a fully managed Hadoop cluster ecosystem that runs on multiple EC2 instances. EMR allows you to pick
+and choose different frameworks that you want to include within the cluster. This allows you to run distributed
+workloads over many EC2 instances if you have lots and lots of data. We could therefore choose frameworks that allow us 
+to run our transformation jobs on a distributed system e.g. 
+
+![EMRFrameworks](../images/emr_frameworks.png)
+
+## Amazon Athena
+
+- Allows you to run SQL queries on S3 data
+- Athena is a serverless platform that is fully managed by AWS
+- As long as you have your Data Catalogue set up within AWS Glue, you can then query it using Athena
+- This means you can do any SQL transformations on your data to prepare it for your ML 
+
+## AWS Data Pipeline
+
+- This allows you to process and move data between different AWS compute services e.g. 
+
+![DataPipelineOverview](../images/data_pipeline_overview.png)
+
+- In most cases, Data Pipeline wouldn't be used for an ETL job, however if for some reason you didn't want to
+use Python or Scala and instead you wanted to use Java/Javascript etc, you could always have the data pipeline
+transform/prepare the data for you
+- When creating a Data Pipeline, you can choose between the several built-in templates that AWS offers, to migrate your
+data from one service to another:
+
+## Which Data Preparation service should I use?
+
+In most cases, AWS Glue will be your go-to service. 
+
+![WhichDataPrepService](../images/which_data_prep_service.png)
+
+## Exam Tips
+
+![DataPreparationExamsTips1](../images/data_preparation_exam_tips_1.png)
+
+![DataPreparationExamsTips2](../images/data_preparation_exam_tips_2.png)
+
+![DataPreparationExamsTips3](../images/data_preparation_exam_tips_3.png)
+
+![DataPreparationExamsTips4](../images/data_preparation_exam_tips_4.png)
+
+![DataPreparationExamsTips5](../images/data_preparation_exam_tips_5.png)
+
 
 
 
