@@ -1,0 +1,20 @@
+# basic options
+title: AWS ML Speciality Training
+author: Kelly Spry
+email: kelly.spry@ibm.com
+description: Notes for A Cloud Guru training for the AML ML Speciality certification 2020
+github_username: kelspry
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-cayman
+show_downloads: true
+gems:
+  - jemoji
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+github:
+  is_project_page: true
